@@ -8,6 +8,7 @@ const OpenAI = require("openai");
 admin.initializeApp();
 const db = admin.firestore();
 
+//Nunca subir a git el .env porque eso contiene el token unico que uno debe crear
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
