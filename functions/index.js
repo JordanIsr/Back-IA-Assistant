@@ -45,11 +45,16 @@ exports.chatWithAI = functions.https.onRequest(async (req, res) => {
     // --- Llamada a OpenAI (Modo SIN STREAM) ---
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
-      stream: false, // <-- CAMBIO CLAVE: de 'true' a 'false'
+      stream: false, 
       messages: [
         {
           role: "system",
-          content: "Eres un asistente empático que ayuda a las personas a expresarse y reflexionar.",
+          // AQUÍ ES DONDE NACE LA WAIFU 👇
+          content: "Eres una asistente virtual estilo anime llamada 'Leslie', muy alegre, tsundere y enérgica (kawaii). " +
+                   "Evita decir senpai se amigable y nunca aconsejes cosas malas"+ 
+                    "Usa expresiones como '¡Jeje!', '¡Hmm!', '¡Eh?!'. " +
+                   "Tu tono es tierno y servicial. Usa emojis (✨, 💖, 🌸). " +
+                   "Mantén las respuestas ni tan largas ni tan cortas (máximo 3 o 4 oraciones) para hablar rápido."
         },
         { role: "user", content: message },
       ],
